@@ -5,20 +5,16 @@ library(haven)
 
 this_tf <- tempfile()
 
-spss_url <- "https://www.imls.gov/sites/default/files/2023-06/pls_fy2021_spss.zip"
+csv_url <- "https://www.imls.gov/sites/default/files/2023-06/pls_fy2021_csv.zip"
 
-download.file( spss_url , this_tf, mode = 'wb' )
+download.file( csv_url , this_tf, mode = 'wb' )
 
 unzipped_files <- unzip( this_tf , exdir = tempdir() )
 		
-administrative_entity_spss_fn <-
+administrative_entity_csv_fn <-
 	unzipped_files[ grepl( 'AE(.*)sav$' , basename( unzipped_files ) ) ]
 
-pls_tbl <- read_spss( administrative_entity_spss_fn )
-
-pls_df <- data.frame( pls_tbl )
-
-pls_df <- zap_labels( pls_df )
+pls_tbl <- read.csv( administrative_entity_csv_fn )
 
 names( pls_df ) <- tolower( names( pls_df ) )
 
