@@ -1,6 +1,6 @@
-# 
-# 
-# 
+# census, not survey.
+# dewey decimal index
+# finger to lips shush
 library(haven)
 
 this_tf <- tempfile()
