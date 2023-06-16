@@ -5,16 +5,16 @@ library(haven)
 
 this_tf <- tempfile()
 
-sas_url <- "https://www.imls.gov/sites/default/files/2023-06/pls_fy2021_sas.zip"
+spss_url <- "https://www.imls.gov/sites/default/files/2023-06/pls_fy2021_spss.zip"
 
-download.file( sas_url , this_tf, mode = 'wb' )
+download.file( spss_url , this_tf, mode = 'wb' )
 
 unzipped_files <- unzip( this_tf , exdir = tempdir() )
 		
-administrative_entity_sas_fn <-
-	unzipped_files[ grepl( 'AE(.*)sas7bdat$' , basename( unzipped_files ) ) ]
+administrative_entity_spss_fn <-
+	unzipped_files[ grepl( 'AE(.*)sav$' , basename( unzipped_files ) ) ]
 
-pls_tbl <- read_sas( administrative_entity_sas_fn )
+pls_tbl <- read_spss( administrative_entity_spss_fn )
 
 pls_df <- data.frame( pls_tbl )
 
