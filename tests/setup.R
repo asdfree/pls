@@ -5,7 +5,7 @@ library(haven)
 
 this_tf <- tempfile()
 
-sas_url <- "https://www.imls.gov/sites/default/files/2022-07/pls_fy2020_sas.zip"
+sas_url <- "https://www.imls.gov/sites/default/files/2023-06/pls_fy2021_sas.zip"
 
 download.file( sas_url , this_tf, mode = 'wb' )
 
@@ -114,9 +114,9 @@ summary( glm_result )
 # remove closed and temporarily closed libraries
 results <- table( pls_df[ !( pls_df[ , 'statstru' ] %in% c( '03' , '23' ) ) , 'c_relatn' ] )
 
-stopifnot( results[ "HQ-Headquarters of a federation or cooperative" ] == 116 )
-stopifnot( results[ "ME-Member of a federation or cooperative" ] == 6858 )
-stopifnot( results[ "NO-Not a member of a federation or cooperative" ] == 2254 )
+stopifnot( results[ "HQ-Headquarters of a federation or cooperative" ] == 112 )
+stopifnot( results[ "ME-Member of a federation or cooperative" ] == 6859 )
+stopifnot( results[ "NO-Not a member of a federation or cooperative" ] == 2236 )
 library(dplyr)
 pls_tbl <- as_tibble( pls_df )
 pls_tbl %>%
