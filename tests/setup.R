@@ -1,8 +1,6 @@
 # census, not survey.
 # dewey decimal index
 # finger to lips shush
-library(haven)
-
 this_tf <- tempfile()
 
 csv_url <- "https://www.imls.gov/sites/default/files/2023-06/pls_fy2021_csv.zip"
